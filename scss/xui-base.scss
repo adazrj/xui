@@ -219,42 +219,7 @@ body {
 	    border-color: #cfdbe2;
     }
 }
-.nav-tabs {
-    border-bottom: 1px solid #ddd;
-    >li{
-    float: left;
-    margin-bottom: -1px;
-    }
-}
-.nav {
-    margin-bottom: 0;
-    padding-left: 0;
-    list-style: none;
-    >li{
-    	position: relative;
-        display: block;
-    }
-    >li{
-    	a{
-    		font-weight: 700;
-		    color: #515253;
-		    background-color: #edf1f2;
-		    margin: 0;
-		    border: 1px solid #dde6e9;
-		    border-radius: 0;
-		    padding: 10px 20px;
-    	}
-    }
-    >li.active{
-    	a{
-    		color: #dde6e9;
-		    background-color: #fff;
-		    border: 1px solid #ddd;
-		    border-bottom-color: transparent;
-		    cursor: default;
-    	}
-    }
-}
+
 
 
 
