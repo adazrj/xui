@@ -1,4 +1,7 @@
+
 @import url(reset.import.css);/* reset */
+@import url(xui.css);/* reset */
+
 
 
 .cubic-bezier{
@@ -29,7 +32,7 @@ body {
     background-repeat: repeat-x;
     position:relative;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff37bc9b', endColorstr='#ff58ceb1', GradientType=1);
-      .navbar-header {
+    .navbar-header {
 	    background-color: transparent;
 	    background-image: -webkit-linear-gradient(left, #37bc9b 0%, #58ceb1 100%);
 	    background-image: -o-linear-gradient(left, #37bc9b 0%, #58ceb1 100%);
@@ -38,16 +41,26 @@ body {
 	    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff37bc9b', endColorstr='#ff58ceb1', GradientType=1);
 	  	z-index: 1050; 
 	  	position:relative;
+	  	width: 220px;
 	  	.navbar-brand{
 		  	float: left;
-		    padding: 17px 15px;
 		    font-size: 18px;
 		    line-height: 21px;
 		    height: 55px;
+		    position: relative;
 		    .brand-logo{
-		    	display: block;
-    			padding: 10px 15px;
-		    }
+	    	display: block;
+			background-image:url(../img/logo.png);
+			background-size:100% 100%;
+			width:64px;
+			height: 28px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+			-webkit-transform: translate(-50%,-50%);
+			-o-transform: translate(-50%,-50%);
+			}
 		  }
 	  }
 	  .nav-wrapper{
@@ -61,7 +74,7 @@ body {
 	  		float:left;
 	  		>li{
 	  			>a{
-	  				padding: 10px 15px;
+	  				padding: 10px 15px;display: block;
 	  			}
 	  		}
 	  	}
@@ -75,7 +88,6 @@ body {
 	  }
   }
   .aside{
-  	background-color:#fff;
   	position: absolute;
     width: 220px;
     top: 0;
@@ -98,10 +110,159 @@ body {
 		    background-color: #fff;
 		    overflow-x: hidden;
 		    -webkit-overflow-scrolling: touch;
+		    .nav{
+		    	>li{
+		    		border-left: 3px solid transparent;
+    				transition: border-left-color .4s ease;
+    				.label{
+    					-webkit-animation: fadeInRight 1s;
+					    animation: fadeInRight 1s;
+					    -webkit-animation-fill-mode: both;
+					    animation-fill-mode: both;
+				        display: block;
+					}
+
+					>a{
+						padding: 12px 24px;
+					    color: #515253;
+					    letter-spacing: .025em;
+					    font-weight: 400;
+					    cursor: pointer;
+					    display: inline-block;
+						>em{
+							width: 1.8em;
+						    display: inline-block;
+						    font-style: normal;
+						    font-weight: 400;
+						    line-height: 1;
+						    -webkit-font-smoothing: antialiased;
+						    color: inherits;
+						}
+					}
+				}
+		    	>li.active{
+		    		border-left-color: #37bc9b;
+		    		>a>em{
+		    			color: #37bc9b;
+		    		}
+		    	}
+		    }
+		    .nav-heading{
+		    	padding: 12px 15px;
+			    color: #919da8;
+			    font-size: 13px;
+			    letter-spacing: .035em;
+			    pointer-events: none;
+			    cursor: default;
+			    color: #919DA8;
+		    }
+		    .sidebar-subnav{
+		    	>li{
+		    		>a{
+		    			display: block;
+					    position: relative;
+					    padding: 10px 20px;
+					    padding-left: 53px;
+					    font-weight: 400;
+					    background-color: transparent!important;
+					    color: #515253;
+		    		}
+		    	}
+		    }
 	    }
     }
   }
+  .content-wrapper{
+  	transition: margin-left .2s cubic-bezier(.35,0,.25,1);
+  	position: relative;
+    height: 100%;
+    margin-left: 0;
+    z-index: 111;
+    background-color: #f5f7fa;
+    margin-bottom: 60px!important;
+    padding: 20px;
+    border-top: 1px solid rgba(0,0,0,.15);
+    margin-top: -1px;
+  }
 }
+
+.panel{
+	margin-bottom: 21px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    .panel-heading{
+    	border-bottom: 0;
+        font-size: 14px;
+        padding: 10px 15px;
+	    border-top-right-radius: 3px;
+	    border-top-left-radius: 3px;
+	    .panel-title{
+	    	margin-top: 0;
+		    margin-bottom: 0;
+		    font-size: 16px
+	    }
+    }
+    .panel-body{
+    	padding: 15px;
+    }
+}
+.panel-default {
+    border-color: #cfdbe2;
+}
+.panel.panel-default {
+    border-top-width: 3px;
+    .panel-heading{
+    	color: #444;
+	    background-color: #fff;
+	    border-color: #cfdbe2;
+    }
+}
+.nav-tabs {
+    border-bottom: 1px solid #ddd;
+    >li{
+    float: left;
+    margin-bottom: -1px;
+    }
+}
+.nav {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    >li{
+    	position: relative;
+        display: block;
+    }
+    >li{
+    	a{
+    		font-weight: 700;
+		    color: #515253;
+		    background-color: #edf1f2;
+		    margin: 0;
+		    border: 1px solid #dde6e9;
+		    border-radius: 0;
+		    padding: 10px 20px;
+    	}
+    }
+    >li.active{
+    	a{
+    		color: #dde6e9;
+		    background-color: #fff;
+		    border: 1px solid #ddd;
+		    border-bottom-color: transparent;
+		    cursor: default;
+    	}
+    }
+}
+
+
+
+
+
+
+
+
 
 @media only screen and (max-width: 767px) {
   .csstransforms3d .wrapper {
@@ -109,6 +270,9 @@ body {
     backface-visibility: hidden; } 
 }
 @media (min-width: 768px){
+	.navbar-header {
+	    float: left;
+	}
 	.navbar-nav>li {
 	    float: left;
 	}
@@ -119,6 +283,29 @@ body {
 	}
 	.wrapper>.aside .aside-inner {
 	    padding-top: 55px;
+	}
+	.sidebar>.nav .label {
+	    margin: 2px 0 0;
+	}
+	.nav-wrapper:after, .nav-wrapper:before {
+	    content: " ";
+	    display: table;
+	}
+	.nav-wrapper:after {
+	    clear: both;
+	}
+	.topnavbar .navbar-header .navbar-brand {
+	    width: 100%;
+	}
+	.topnavbar .navbar-nav > li > a, .topnavbar .navbar-nav > .open > a {
+	    color: #fff;
+	}
+	.wrapper .topnavbar .nav-wrapper .navbar-nav > li > a{
+	    padding-top: 17px;
+	    padding-bottom: 17px;
+	}
+	.wrapper .content-wrapper{
+	    margin-left: 220px;
 	}
 }
 
@@ -134,8 +321,12 @@ body {
 }
 
 
-
-
+.visible-lg, .visible-lg-block, .visible-lg-inline, .visible-lg-inline-block, .visible-md, .visible-md-block, .visible-md-inline, .visible-md-inline-block, .visible-sm, .visible-sm-block, .visible-sm-inline, .visible-sm-inline-block, .visible-xs, .visible-xs-block, .visible-xs-inline, .visible-xs-inline-block {
+    display: none!important;
+}
+.collapse {
+    display: none;
+}
 
 
 
