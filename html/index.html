@@ -47,13 +47,7 @@
                         <em class="fa fa-navicon"></em>
                      </a>
                   </li>
-                  <!-- START User avatar toggle-->
-                  <li>
-                     <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
-                     <a id="user-block-toggle" href="#user-block" data-toggle="collapse">
-                        <em class="icon-user"></em>
-                     </a>
-                  </li>
+                  
                   <!-- END User avatar toggle-->
                </ul>
                <!-- END Left navbar-->
@@ -79,7 +73,7 @@
         <!-- sidebar-->
       <aside class="aside">
          <!-- START Sidebar (left)-->
-         <div class="aside-inner">
+         <div class="aside-inner" id="aside-bar">
             <nav class="sidebar" data-sidebar-anyclick-close="">
                <!-- START sidebar nav-->
                <ul class="nav">
@@ -92,8 +86,8 @@
                         <em class="icon-chemistry"></em>
                         <span data-localize="sidebar.nav.element.ELEMENTS">Elements</span>
                      </a>
-                     <ul class="nav sidebar-subnav collapse" id="elements">
-                        <li class="sidebar-subnav-header">Elements</li>
+                     <ul class="nav sidebar-subnav" id="elements">
+                        <!-- <li class="sidebar-subnav-header">Elements</li> -->
                         <li class=" ">
                            <a href="buttons.html" title="Buttons">
                               <span data-localize="sidebar.nav.element.BUTTON">Button</span>
@@ -101,89 +95,22 @@
                         </li>
                         <li class=" ">
                            <a href="notifications.html" title="Notifications">
-                              <span data-localize="sidebar.nav.element.NOTIFICATION">Notification</span>
+                              <span data-localize="sidebar.nav.element.NOTIFICATION">Input</span>
                            </a>
                         </li>
                         <li class=" ">
                            <a href="sweetalert.html" title="Sweet Alert">
-                              <span>Sweet Alert</span>
+                              <span>Radio</span>
                            </a>
                         </li>
                         <li class=" ">
                            <a href="tour.html" title="Tour">
-                              <span>Tour</span>
+                              <span>checkbox</span>
                            </a>
                         </li>
                         <li class=" ">
                            <a href="carousel.html" title="Carousel">
-                              <span data-localize="sidebar.nav.element.INTERACTION">Carousel</span>
-                           </a>
-                        </li>
-                        <li class=" ">
-                           <a href="spinners.html" title="Spinners">
-                              <span data-localize="sidebar.nav.element.SPINNER">Spinner</span>
-                           </a>
-                        </li>
-                        <li class=" ">
-                           <a href="animations.html" title="Animations">
-                              <span data-localize="sidebar.nav.element.ANIMATION">Animation</span>
-                           </a>
-                        </li>
-                        <li class=" ">
-                           <a href="dropdown-animations.html" title="Dropdown">
-                              <span data-localize="sidebar.nav.element.DROPDOWN">Dropdown</span>
-                           </a>
-                        </li>
-                        <li class=" ">
-                           <a href="nestable.html" title="Nestable">
-                              <span>Nestable</span>
-                           </a>
-                        </li>
-                        <li class=" ">
-                           <a href="sortable.html" title="Sortable">
-                              <span>Sortable</span>
-                           </a>
-                        </li>
-                        <li class=" ">
-                           <a href="panels.html" title="Panels">
-                              <span data-localize="sidebar.nav.element.PANEL">Panel</span>
-                           </a>
-                        </li>
-                        <li class=" ">
-                           <a href="portlets.html" title="Portlets">
-                              <span data-localize="sidebar.nav.element.PORTLET">Portlet</span>
-                           </a>
-                        </li>
-                        <li class=" ">
-                           <a href="grid.html" title="Grid">
-                              <span data-localize="sidebar.nav.element.GRID">Grid</span>
-                           </a>
-                        </li>
-                        <li class=" ">
-                           <a href="grid-masonry.html" title="Grid Masonry">
-                              <span data-localize="sidebar.nav.element.GRID_MASONRY">Grid Masonry</span>
-                           </a>
-                        </li>
-                        <li class=" ">
-                           <a href="typo.html" title="Typography">
-                              <span data-localize="sidebar.nav.element.TYPO">Typography</span>
-                           </a>
-                        </li>
-                        <li class=" ">
-                           <a href="icons-font.html" title="Font Icons">
-                              <div class="pull-right label label-success">+400</div>
-                              <span data-localize="sidebar.nav.element.FONT_ICON">Font Icons</span>
-                           </a>
-                        </li>
-                        <li class=" ">
-                           <a href="icons-weather.html" title="Weather Icons">
-                              <div class="pull-right label label-success">+100</div>
-                              <span data-localize="sidebar.nav.element.WEATHER_ICON">Weather Icons</span>
-                           </a>
-                        </li>
-                        <li class=" ">
-                           <a href="colors.html" title="Colors">
-                              <span data-localize="sidebar.nav.element.COLOR">Colors</span>
+                              <span data-localize="sidebar.nav.element.INTERACTION">Icon</span>
                            </a>
                         </li>
                      </ul>
@@ -196,30 +123,77 @@
                   </li>
                </ul>
             </nav>
+            <div class="filter fl" track-by="$index" v-for="filter in filters">
+                <div class="filter-title" @click="toggleFilter($index)">
+                  <h3>{{filter.title}}</h3>
+                </div>
+                <ul class="filter-list" transition="scaley" v-show="filter.showFilter">
+                  <li class="hairline-bottom" @click="changeFilter($parent.$index, category)" v-for="category in filter.categories">{{category}}</li>
+                </ul>
+            </div>
          </div>
       </aside>
       <!-- Page content-->
       <section class="content-wrapper">
+          <div class="row">
+            <div class="col-12">
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     <h3 class="panel-title">Buttons color</h3>
+                     <div class="pull-right">
+                        <div class="right-select">
+                           <small>HTML</small>
+                           <em class="fa fa-eye"></em>
+                        </div>
+                        <div class="right-select">
+                           <small>CSS</small>
+                           <em class="fa fa-eye-slash"></em>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="panel-body">
+                     <button class="btn default">default</button>
+                     <button class="btn primary">primary</button>
+                  </div>
+                  <div class="panel-footer">
+                     <div class="html-pre">
+                         <pre>&lt;button class="btn default"&gt;default&lt;/button&gt;<br />&lt;button class="btn primary"&gt;primary&lt;/button&gt;</pre>
+                     </div>
+                     <div class="css-pre collapse">
+                        <pre>.btn {<br />    display: inline-block;<br />    padding: 4px 12px;<br />    text-align: center;<br />    vertical-align: middle;<br />    line-height: 1.42858;<br />    font-size: 14px;<br />    border: 1px solid transparent;<br />    border-radius: 3px;<br />    cursor: pointer;<br />    outline: none;<br />}<br />.btn.default {<br />    color: #fff;<br />    background-color: #b6c2c9;<br />}</pre>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
          <!-- START row-->
          <div class="row">
             <div class="col-12">
                <div class="panel panel-default">
                   <div class="panel-heading">
-                     <h3 class="panel-title">Button</h3>
+                     <h3 class="panel-title">Outline Buttons</h3>
+                     <div class="pull-right">
+                        <div class="right-select">
+                           <small>HTML</small>
+                           <em class="fa fa-eye"></em>
+                        </div>
+                        <div class="right-select">
+                           <small>CSS</small>
+                           <em class="fa fa-eye"></em>
+                        </div>
+                     </div>
                   </div>
                   <div class="panel-body">
                      <button class="btn outline default">default</button>
                      <button class="btn outline primary">primary</button>
-                  
-
-
-
-
-                     <a class="btn btn-link" href="#">HTML</a>
-                     <button class="btn btn-default" type="button">
-                        <strong>CSS</strong>
-                     </button>
-                     <pre>&lt;button class="btn outline default"&gt;default&lt;/button&gt;<br />&lt;button class="btn outline primary"&gt;primary&lt;/button&gt;</pre>
+                  </div>
+                  <div class="panel-footer">
+                     <div class="html-pre">
+                         <pre>&lt;button class="btn outline default"&gt;default&lt;/button&gt;<br />&lt;button class="btn outline primary"&gt;primary&lt;/button&gt;</pre>
+                     </div>
+                     <div class="css-pre">
+                        <pre>.btn {<br />    display: inline-block;<br />    padding: 4px 12px;<br />    text-align: center;<br />    vertical-align: middle;<br />    line-height: 1.42858;<br />    font-size: 14px;<br />    border: 1px solid transparent;<br />    border-radius: 3px;<br />    cursor: pointer;<br />    outline: none;<br />}<br />.btn.outline {<br />    background-color: transparent;<br />}<br />.btn.outline.default {<br />    color: #b6c2c9;<br />    border-color: #b6c2c9;<br />}</pre>
+                     </div>
                   </div>
                </div>
             </div>
@@ -230,9 +204,49 @@
 <script type="text/javascript" src="../js/prettify.js"></script>
 <script type="text/javascript">
    $(window).load(function(){
-    $("pre").addClass("prettyprint linenums");
-    prettyPrint();}
-   )
+       $("pre").addClass("prettyprint linenums");
+       prettyPrint();
+
+
+       $(".sidebar-toggle").click(function(){
+         $("body").toggleClass("aside-toggled");
+       });
+   });
+   
+</script>
+<script src="https://unpkg.com/vue"></script>
+<script type="text/javascript">
+   new Vue({
+      el: '#aside-bar',
+       data: {
+           filters: [
+           {
+             categories: ['电子商务', '互联网医疗', '互联网金融'],
+             showFilter: true,
+             title: '分类'
+           }, {
+             categories: ['正在申购', '申购完成'],
+             showFilter: false,
+             title: '状态'
+           }, {
+             categories: ['杭州', '上海', '北京', '深圳', '广州'],
+             showFilter: false,
+             title: '地区'
+           }
+          ]
+      },
+       methods: {
+         toggleFilter(index) {
+            this.filters[index].showFilter = this.filters[index].showFilter ? false : true
+           },
+           
+           changeFilter(index, category) {
+            this.filters[index].title = category
+           }
+       }
+   })
+
+
 
 </script>
 </html>

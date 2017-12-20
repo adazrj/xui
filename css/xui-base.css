@@ -22,13 +22,14 @@ body {
   min-height: 100%;
   overflow-x: hidden; }
   .wrapper .topnavbar {
-    background-color: #37bc9b;
-    background-image: -webkit-linear-gradient(left, #37bc9b 0%, #58ceb1 100%);
-    background-image: -o-linear-gradient(left, #37bc9b 0%, #58ceb1 100%);
-    background-image: linear-gradient(to right, #37bc9b 0%, #58ceb1 100%);
-    background-repeat: repeat-x;
-    position: relative;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff37bc9b', endColorstr='#ff58ceb1', GradientType=1); }
+    -webkit-backface-visibility: hidden;
+    margin-bottom: 0;
+    border-radius: 0;
+    background-color: #fff;
+    z-index: 1050;
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    position: relative; }
     .wrapper .topnavbar .navbar-header {
       background-color: transparent;
       background-image: -webkit-linear-gradient(left, #37bc9b 0%, #58ceb1 100%);
@@ -37,8 +38,7 @@ body {
       background-repeat: repeat-x;
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff37bc9b', endColorstr='#ff58ceb1', GradientType=1);
       z-index: 1050;
-      position: relative;
-      width: 220px; }
+      position: relative; }
       .wrapper .topnavbar .navbar-header .navbar-brand {
         float: left;
         font-size: 18px;
@@ -52,11 +52,11 @@ body {
           width: 64px;
           height: 28px;
           position: absolute;
-          left: 50%;
           top: 50%;
-          transform: translate(-50%, -50%);
-          -webkit-transform: translate(-50%, -50%);
-          -o-transform: translate(-50%, -50%); }
+          left: 57px;
+          transform: translateY(-50%);
+          -webkit-transform: translateY(-50%);
+          -o-transform: translateY(-50%); }
     .wrapper .topnavbar .nav-wrapper {
       background-color: #37bc9b;
       background-image: -webkit-linear-gradient(left, #37bc9b 0%, #58ceb1 100%);
@@ -68,7 +68,8 @@ body {
         float: left; }
         .wrapper .topnavbar .nav-wrapper .navbar-nav > li > a {
           padding: 10px 15px;
-          display: block; }
+          display: block;
+          color: #fff; }
       .wrapper .topnavbar .nav-wrapper .navbar-nav.navbar-right {
         float: right; }
       .wrapper .topnavbar .nav-wrapper .nav {
@@ -168,8 +169,25 @@ body {
       margin-top: 0;
       margin-bottom: 0;
       font-size: 16px; }
+    .panel .panel-heading .right-select {
+      display: inline-block;
+      cursor: pointer;
+      margin-left: 10px; }
   .panel .panel-body {
     padding: 15px; }
+  .panel .panel-footer {
+    padding: 10px 15px;
+    background-color: #fafafa;
+    border-top: 1px solid #eee;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px; }
+    .panel .panel-footer .f-title {
+      color: #656565;
+      margin: 0 auto;
+      display: block;
+      text-align: center; }
+    .panel .panel-footer .css-pre {
+      margin-top: 10px; }
 
 .panel-default {
   border-color: #cfdbe2; }
@@ -184,7 +202,47 @@ body {
 @media only screen and (max-width: 767px) {
   .csstransforms3d .wrapper {
     -webkit-backface-visibility: hidden;
-    backface-visibility: hidden; } }
+    backface-visibility: hidden; }
+
+  .visible-xs {
+    display: block !important; }
+
+  .csstransforms3d .wrapper > .aside {
+    margin-left: 0;
+    -webkit-transform: translate3d(-220px, 0, 0);
+    transform: translate3d(-220px, 0, 0);
+    transition: transform .3s ease; }
+
+  .wrapper > .aside {
+    margin-left: -220px; }
+
+  .sidebar-toggle {
+    position: absolute !important;
+    top: 5px;
+    right: 0;
+    z-index: 3001; }
+
+  .visible-xs {
+    display: block !important; }
+
+  .hidden-xs {
+    display: none !important; }
+
+  .aside-toggled .wrapper > .aside {
+    margin-left: 0; }
+
+  .prettyprint.linenums,
+  .panel .panel-heading .right-select {
+    display: none; }
+
+  .wrapper .topnavbar .nav-wrapper .navbar-right > li > a {
+    color: #37bc9b; }
+
+  .wrapper .topnavbar .navbar-header .navbar-brand .brand-logo {
+    left: 20px; }
+
+  .panel .panel-footer {
+    padding: 0; } }
 @media (min-width: 768px) {
   .navbar-header {
     float: left; }
@@ -221,7 +279,28 @@ body {
     padding-bottom: 17px; }
 
   .wrapper .content-wrapper {
-    margin-left: 220px; } }
+    margin-left: 220px; }
+
+  .wrapper .topnavbar .navbar-header {
+    width: 220px;
+    text-align: center; }
+
+  .topnavbar {
+    background-color: #37bc9b;
+    background-image: -webkit-linear-gradient(left, #37bc9b 0%, #58ceb1 100%);
+    background-image: -o-linear-gradient(left, #37bc9b 0%, #58ceb1 100%);
+    background-image: linear-gradient(to right, #37bc9b 0%, #58ceb1 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff37bc9b', endColorstr='#ff58ceb1', GradientType=1); }
+
+  .visible-xs {
+    display: none !important; }
+
+  .hidden-xs {
+    display: block !important; }
+
+  .wrapper .topnavbar .navbar-header {
+    background-image: none; } }
 .btn-group-vertical > .btn-group:after, .btn-group-vertical > .btn-group:before, .btn-toolbar:after, .btn-toolbar:before, .clearfix:after, .clearfix:before, .container-fluid:after, .container-fluid:before, .container:after, .container:before, .dl-horizontal dd:after, .dl-horizontal dd:before, .form-horizontal .form-group:after, .form-horizontal .form-group:before, .modal-footer:after, .modal-footer:before, .modal-header:after, .modal-header:before, .nav:after, .nav:before, .navbar-collapse:after, .navbar-collapse:before, .navbar-header:after, .navbar-header:before, .navbar:after, .navbar:before, .pager:after, .pager:before, .panel-body:after, .panel-body:before, .row:after, .row:before {
   content: " ";
   display: table; }
@@ -233,7 +312,7 @@ body {
   box-sizing: border-box; }
 
 .visible-lg, .visible-lg-block, .visible-lg-inline, .visible-lg-inline-block, .visible-md, .visible-md-block, .visible-md-inline, .visible-md-inline-block, .visible-sm, .visible-sm-block, .visible-sm-inline, .visible-sm-inline-block, .visible-xs, .visible-xs-block, .visible-xs-inline, .visible-xs-inline-block {
-  display: none !important; }
+  display: none; }
 
 .collapse {
   display: none; }
