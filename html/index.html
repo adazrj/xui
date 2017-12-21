@@ -74,6 +74,21 @@
       <aside class="aside">
          <!-- START Sidebar (left)-->
          <div class="aside-inner" id="aside-bar">
+            <div id="todo-list-example">
+              <input
+                v-model="newTodoText"
+                v-on:keyup.enter="addNewTodo"
+                placeholder="Add a todo"
+              >
+              <ul>
+                <li
+                  is="todo-item"
+                  v-for="(todo, index) in todos"
+                  v-bind:title="todo"
+                  v-on:remove="todos.splice(index, 1)"
+                ></li>
+              </ul>
+            </div>
             <nav class="sidebar" data-sidebar-anyclick-close="">
                <!-- START sidebar nav-->
                <ul class="nav">
@@ -123,14 +138,7 @@
                   </li>
                </ul>
             </nav>
-            <div class="filter fl" track-by="$index" v-for="filter in filters">
-                <div class="filter-title" @click="toggleFilter($index)">
-                  <h3>{{filter.title}}</h3>
-                </div>
-                <ul class="filter-list" transition="scaley" v-show="filter.showFilter">
-                  <li class="hairline-bottom" @click="changeFilter($parent.$index, category)" v-for="category in filter.categories">{{category}}</li>
-                </ul>
-            </div>
+           
          </div>
       </aside>
       <!-- Page content-->
@@ -216,36 +224,33 @@
 </script>
 <script src="https://unpkg.com/vue"></script>
 <script type="text/javascript">
-   new Vue({
-      el: '#aside-bar',
-       data: {
-           filters: [
-           {
-             categories: ['电子商务', '互联网医疗', '互联网金融'],
-             showFilter: true,
-             title: '分类'
-           }, {
-             categories: ['正在申购', '申购完成'],
-             showFilter: false,
-             title: '状态'
-           }, {
-             categories: ['杭州', '上海', '北京', '深圳', '广州'],
-             showFilter: false,
-             title: '地区'
-           }
-          ]
-      },
-       methods: {
-         toggleFilter(index) {
-            this.filters[index].showFilter = this.filters[index].showFilter ? false : true
-           },
-           
-           changeFilter(index, category) {
-            this.filters[index].title = category
-           }
-       }
-   })
+      Vue.component('todo-item', {
+        template: '\
+          <li>\
+            {{ title }}\
+            <button v-on:click="$emit(\'remove\')">X</button>\
+          <\li>\
+        ',
+        props: ['title']
+      })
 
+      new Vue({
+        el: '#todo-list-example',
+        data: {
+          newTodoText: '',
+          todos: [
+            'Do the dishes',
+            'Take out the trash',
+            'Mow the lawn'
+          ]
+        },
+        methods: {
+          addNewTodo: function () {
+            this.todos.push(this.newTodoText)
+            this.newTodoText = ''
+          }
+        }
+      });
 
 
 </script>
