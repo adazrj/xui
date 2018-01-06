@@ -20,7 +20,7 @@
 
 </head>
 <body>
- 
+ <!-- var name=<%=title%> -->
     <div class="wrapper">
       <!-- top navbar-->
       <header class="topnavbar-wrapper">
@@ -34,18 +34,15 @@
       </aside>
       <!-- Page content-->
       <section class="content-wrapper">
-         <%- include pagers/input.ejs %> 
+         <%- include pagers/buttons.html %> 
+         <%- include pagers/input.html %>
       </section>
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.12.2/jquery.min.js"></script>
 <script type="text/javascript" src="../js/prettify.js"></script>
 <script type="text/javascript" src="../js/xui.js"></script>
 <script type="text/javascript">
-   $("a[data-toggle='collapse']").click(function(){
-      console.log("-----");
-       $(".content-wrapper").html(<%- include pagers/input.ejs %> );
-       
-   });
+  
    // console.log("-----"+<%=title%>);
 
 </script>
