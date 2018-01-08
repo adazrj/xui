@@ -2,50 +2,32 @@
 <html lang="en">
 
 <head>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-   <meta name="description" content="xui">
-   <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
-   <title>XUI</title>
-   <!-- =============== VENDOR STYLES ===============-->
-   <!-- FONT AWESOME-->
-   <link rel="stylesheet" href="../css/vendor/font-awesome.min.css">
-   <!-- SIMPLE LINE ICONS-->
-   <link rel="stylesheet" href="../css/vendor/simple-line-icons.css">
-   <!-- ANIMATE.CSS-->
-   <link rel="stylesheet" href="../css/vendor/animate.min.css">
-   <link rel="stylesheet" href="../css/prettify.css">
-   <!-- =============== APP STYLES ===============-->
-   <link rel="stylesheet" href="../css/xui-base.css" id="maincss">
-
+   <%- include partials/head %>
 </head>
 <body>
- <!-- var name=<%=title%> -->
     <div class="wrapper">
       <!-- top navbar-->
       <header class="topnavbar-wrapper">
          <!-- START Top Navbar-->
-         <%- include common/topnavbar.ejs %>
+         <%- include partials/topnavbar %>
       </header>
         <!-- sidebar-->
       <aside class="aside">
          <!-- START Sidebar (left)-->
-         <%- include common/aside.ejs %>
+         <%- include partials/aside %>
       </aside>
       <!-- Page content-->
-      <section class="content-wrapper">
-         <%- include pagers/buttons.html %> 
-         <%- include pagers/input.html %>
+      <section class="content-wrapper" id="result">
+         <%- include pagers/buttons %>
       </section>
 </body>
-<script src="https://cdn.bootcss.com/jquery/1.12.2/jquery.min.js"></script>
-<script type="text/javascript" src="../js/prettify.js"></script>
-<script type="text/javascript" src="../js/xui.js"></script>
-<script type="text/javascript">
-  
-   // console.log("-----"+<%=title%>);
+<%- include partials/script %> 
+<!-- <script type="text/javascript">
+   var $result = $('#result'); 
+   
+   $result.load('/user');
+</script> -->
 
-</script>
 </html>
 
 

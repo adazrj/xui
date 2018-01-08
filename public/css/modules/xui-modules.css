@@ -177,26 +177,56 @@ template {
 *:after {
   box-sizing: inherit; }
 
-html {
-  box-sizing: border-box;
-  font-size: 12px; }
-
-body {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #333;
-  line-height: 1.42858; }
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
 
 a {
-  text-decoration: none;
-  color: #348fe2;
-  }
+  outline: none;
+  text-decoration: none; }
 
-code,
-kbd,
-pre,
-samp {
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace; }
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
 
 h1,
 h2,
@@ -210,11 +240,10 @@ h6 {
 
 small,
 .small {
-  /* font-weight: 400; */
-  /* line-height: 1; */
-  /* color: #777; */
-  /* font-size: 65%; */
-  }
+  font-weight: 400;
+  line-height: 1;
+  color: #777;
+  font-size: 65%; }
 
 h1 {
   font-size: 36px; }
@@ -240,7 +269,7 @@ hr {
   border: 0;
   border-top: 1px solid #eee; }
 
-.btn {
+.xui-btn {
   display: inline-block;
   padding: 4px 12px;
   text-align: center;
@@ -251,193 +280,193 @@ hr {
   border-radius: 3px;
   cursor: pointer;
   outline: none; }
-  .btn.fluid {
+  .xui-btn.fluid {
     display: block;
     width: 100%; }
-  .btn.default {
+  .xui-btn.default {
     color: #fff;
     background-color: #b6c2c9; }
-    .btn.default:hover {
+    .xui-btn.default:hover {
       background-color: #a7b6be; }
-    .btn.default:focus {
+    .xui-btn.default:focus {
       background-color: #a7b6be; }
-    .btn.default:active {
+    .xui-btn.default:active {
       background-color: #a7b6be; }
-  .btn.primary {
+  .xui-btn.primary {
     color: #fff;
     background-color: #348fe2; }
-    .btn.primary:hover {
+    .xui-btn.primary:hover {
       background-color: #2083dd; }
-    .btn.primary:focus {
+    .xui-btn.primary:focus {
       background-color: #2083dd; }
-    .btn.primary:active {
+    .xui-btn.primary:active {
       background-color: #2083dd; }
-  .btn.info {
+  .xui-btn.info {
     color: #fff;
     background-color: #49b6d6; }
-    .btn.info:hover {
+    .xui-btn.info:hover {
       background-color: #34aed1; }
-    .btn.info:focus {
+    .xui-btn.info:focus {
       background-color: #34aed1; }
-    .btn.info:active {
+    .xui-btn.info:active {
       background-color: #34aed1; }
-  .btn.success {
+  .xui-btn.success {
     color: #fff;
     background-color: #84b547; }
-    .btn.success:hover {
+    .xui-btn.success:hover {
       background-color: #77a340; }
-    .btn.success:focus {
+    .xui-btn.success:focus {
       background-color: #77a340; }
-    .btn.success:active {
+    .xui-btn.success:active {
       background-color: #77a340; }
-  .btn.danger {
+  .xui-btn.danger {
     color: #fff;
     background-color: #ff5b57; }
-    .btn.danger:hover {
+    .xui-btn.danger:hover {
       background-color: #ff423e; }
-    .btn.danger:focus {
+    .xui-btn.danger:focus {
       background-color: #ff423e; }
-    .btn.danger:active {
+    .xui-btn.danger:active {
       background-color: #ff423e; }
-  .btn.warning {
+  .xui-btn.warning {
     color: #fff;
     background-color: #f59c1a; }
-    .btn.warning:hover {
+    .xui-btn.warning:hover {
       background-color: #eb900a; }
-    .btn.warning:focus {
+    .xui-btn.warning:focus {
       background-color: #eb900a; }
-    .btn.warning:active {
+    .xui-btn.warning:active {
       background-color: #eb900a; }
-  .btn.inverted {
+  .xui-btn.inverted {
     color: #fff;
     background-color: #2d353c; }
-    .btn.inverted:hover {
+    .xui-btn.inverted:hover {
       background-color: #434f59; }
-    .btn.inverted:focus {
+    .xui-btn.inverted:focus {
       background-color: #434f59; }
-    .btn.inverted:active {
+    .xui-btn.inverted:active {
       background-color: #434f59; }
-  .btn.link {
+  .xui-btn.link {
     color: #348fe2;
     background-color: transparent;
     border-color: transparent; }
-    .btn.link:hover {
+    .xui-btn.link:hover {
       color: #1c75c7;
       text-decoration: underline;
       background-color: transparent; }
-    .btn.link:focus {
+    .xui-btn.link:focus {
       color: #1c75c7;
       text-decoration: underline;
       background-color: transparent; }
-    .btn.link:active {
+    .xui-btn.link:active {
       color: #1c75c7;
       text-decoration: underline;
       background-color: transparent; }
 
-.btn.outline {
+.xui-btn.outline {
   background-color: transparent; }
-  .btn.outline.default {
+  .xui-btn.outline.default {
     color: #b6c2c9;
     border-color: #b6c2c9; }
-    .btn.outline.default:hover {
+    .xui-btn.outline.default:hover {
       color: #fff;
       background-color: #b6c2c9; }
-    .btn.outline.default:focus {
+    .xui-btn.outline.default:focus {
       color: #fff;
       background-color: #b6c2c9; }
-    .btn.outline.default:active {
+    .xui-btn.outline.default:active {
       color: #fff;
       background-color: #b6c2c9; }
-  .btn.outline.primary {
+  .xui-btn.outline.primary {
     color: #348fe2;
     border-color: #348fe2; }
-    .btn.outline.primary:hover {
+    .xui-btn.outline.primary:hover {
       color: #fff;
       background-color: #348fe2; }
-    .btn.outline.primary:focus {
+    .xui-btn.outline.primary:focus {
       color: #fff;
       background-color: #348fe2; }
-    .btn.outline.primary:active {
+    .xui-btn.outline.primary:active {
       color: #fff;
       background-color: #348fe2; }
-  .btn.outline.info {
+  .xui-btn.outline.info {
     color: #49b6d6;
     border-color: #49b6d6; }
-    .btn.outline.info:hover {
+    .xui-btn.outline.info:hover {
       color: #fff;
       background-color: #49b6d6; }
-    .btn.outline.info:focus {
+    .xui-btn.outline.info:focus {
       color: #fff;
       background-color: #49b6d6; }
-    .btn.outline.info:active {
+    .xui-btn.outline.info:active {
       color: #fff;
       background-color: #49b6d6; }
-  .btn.outline.success {
+  .xui-btn.outline.success {
     color: #84b547;
     border-color: #84b547; }
-    .btn.outline.success:hover {
+    .xui-btn.outline.success:hover {
       color: #fff;
       background-color: #84b547; }
-    .btn.outline.success:focus {
+    .xui-btn.outline.success:focus {
       color: #fff;
       background-color: #84b547; }
-    .btn.outline.success:active {
+    .xui-btn.outline.success:active {
       color: #fff;
       background-color: #84b547; }
-  .btn.outline.danger {
+  .xui-btn.outline.danger {
     color: #ff5b57;
     border-color: #ff5b57; }
-    .btn.outline.danger:hover {
+    .xui-btn.outline.danger:hover {
       color: #fff;
       background-color: #ff5b57; }
-    .btn.outline.danger:focus {
+    .xui-btn.outline.danger:focus {
       color: #fff;
       background-color: #ff5b57; }
-    .btn.outline.danger:active {
+    .xui-btn.outline.danger:active {
       color: #fff;
       background-color: #ff5b57; }
-  .btn.outline.warning {
+  .xui-btn.outline.warning {
     color: #f59c1a;
     border-color: #f59c1a; }
-    .btn.outline.warning:hover {
+    .xui-btn.outline.warning:hover {
       color: #fff;
       background-color: #f59c1a; }
-    .btn.outline.warning:focus {
+    .xui-btn.outline.warning:focus {
       color: #fff;
       background-color: #f59c1a; }
-    .btn.outline.warning:active {
+    .xui-btn.outline.warning:active {
       color: #fff;
       background-color: #f59c1a; }
-  .btn.outline.inverted {
+  .xui-btn.outline.inverted {
     color: #2d353c;
     border-color: #2d353c; }
-    .btn.outline.inverted:hover {
+    .xui-btn.outline.inverted:hover {
       color: #fff;
       background-color: #2d353c; }
-    .btn.outline.inverted:focus {
+    .xui-btn.outline.inverted:focus {
       color: #fff;
       background-color: #2d353c; }
-    .btn.outline.inverted:active {
+    .xui-btn.outline.inverted:active {
       color: #fff;
       background-color: #2d353c; }
 
-.btns {
+.xui-btns {
   position: relative;
   display: inline-block;
   vertical-align: middle; }
-  .btns > .btn {
+  .xui-btns > .xui-btn {
     position: relative;
     float: left;
     border-radius: 0;
     margin-right: -1px; }
-    .btns > .btn:first-child {
+    .xui-btns > .xui-btn:first-child {
       margin-left: 0;
       border-top-left-radius: 3px;
       border-bottom-left-radius: 3px; }
-    .btns > .btn:last-child {
+    .xui-btns > .xui-btn:last-child {
       border-top-right-radius: 3px;
       border-bottom-right-radius: 3px; }
-  .btns.vertical > .btn {
+  .xui-btns.vertical > .xui-btn {
     position: relative;
     display: block;
     float: none;
@@ -445,11 +474,11 @@ hr {
     width: 100%;
     max-width: 100%;
     margin-top: -1px; }
-    .btns.vertical > .btn:first-child {
+    .xui-btns.vertical > .xui-btn:first-child {
       margin-top: 0;
       border-top-left-radius: 3px;
       border-top-right-radius: 3px; }
-    .btns.vertical > .btn:last-child {
+    .xui-btns.vertical > .xui-btn:last-child {
       border-bottom-left-radius: 3px;
       border-bottom-right-radius: 3px; }
 
@@ -959,8 +988,7 @@ table {
   float: right; }
 
 .pull-left {
-  /* float: left; */
-  }
+  float: left; }
 
 .clearfix:before, .clearfix:after {
   content: " ";
@@ -999,4 +1027,4 @@ table {
 .text-uppercase {
   text-transform: uppercase; }
 
-/*# sourceMappingURL=xui.css.map */
+/*# sourceMappingURL=xui-modules.css.map */

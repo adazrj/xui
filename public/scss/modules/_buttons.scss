@@ -1,7 +1,7 @@
 // --------------------------
 // Buttons
 // --------------------------
-.btn {
+.xui-btn {
 	display: inline-block;
 	padding: 4px 12px;
 	text-align: center;
@@ -130,7 +130,7 @@
 }
 
 // outline button
-.btn.outline {
+.xui-btn.outline {
 	background-color: transparent;
 	&.default {
 		color: $color-default;
@@ -246,11 +246,11 @@
 	}
 }
 
-.btns {
+.xui-btns {
 	position: relative;
 	display: inline-block;
 	vertical-align: middle;
-	>.btn {
+	>.xui-btn {
 		position: relative;
 		float: left;
 		border-radius: 0;
@@ -266,7 +266,7 @@
 		}
 	}
 	&.vertical {
-		>.btn {
+		>.xui-btn {
 			position: relative;
 			display: block;
 			float: none;
