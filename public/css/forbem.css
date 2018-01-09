@@ -1,0 +1,17 @@
+.xui {
+  background-color: blue;
+  color: white; }
+  .xui-btn {
+    background-color: red; }
+    .xui-btn_default {
+      background-color: green; }
+  .xui-input {
+    color: #fff; }
+    .xui-input_default {
+      background-color: green; }
+      .xui-input_default:not(.weui-btn_disabled):visited {
+        color: #fff; }
+      .xui-input_default:not(.weui-btn_disabled):active {
+        color: #000; }
+
+/*# sourceMappingURL=forbem.css.map */

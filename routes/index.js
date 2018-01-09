@@ -8,11 +8,14 @@ router.get('/', function(req, res, next) {
   // res.send(params)
   // console.log("----"+params);
   res.render('index');
+  next();
  
 });
 
-// router.get('/input', function (req, res, next) { 
-//     res.render('partials/input.html');
-// });
+router.get('/:id', function (req, res, next) { 
+	var params = req.params.id;
+
+    res.render('pagers/'+params);
+});
 
 module.exports = router;

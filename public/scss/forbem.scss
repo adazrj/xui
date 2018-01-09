@@ -1,0 +1,31 @@
+@import '_bem-mixins';
+
+
+
+@include block('xui') {
+  background-color: blue;
+  color: white;
+
+  @include element('btn') {
+    background-color: red;
+    @include modifier('default') {
+      background-color: green;
+    }
+  }
+  @include element('input') {
+    color:#fff;
+    @include modifier('default') {
+      background-color: green;
+      &:not(.weui-btn_disabled):visited {
+        color:#fff;
+	    }
+	  &:not(.weui-btn_disabled):active {
+	        color:#000;
+	    }
+    }
+    
+  } 
+
+
+
+}
