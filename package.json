@@ -13,6 +13,10 @@
     "express": "~4.14.0",
     "morgan": "~1.7.0",
     "sass-bem-mixins": "^1.1.6",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "workbox-sw": "^2.1.2"
+  },
+  "devDependencies": {
+    "workbox-build": "^2.1.2"
   }
 }

@@ -23,6 +23,7 @@
       </section>
 </body>
 <%- include partials/script %> 
+<script type="text/javascript" src="/node_modules/workbox-sw/build/workbox-sw.prod.v2.1.2.js"></script>
 <script type="text/javascript">
  // var $result = $('#result'); 
 
@@ -41,7 +42,21 @@
 
      });
   
-   
+   // importScripts('/node_modules/workbox-sw/build/workbox-sw.dev.v2.1.2.js');
+
+    const workboxSW = new WorkboxSW();
+    workboxSW.precache([
+      {
+        url: '/',
+        revision: 'bb121c',
+      }, {
+        url: '/styles/main.css',
+        revision: 'acd123',
+      }, {
+        url: '/scripts/main.js',
+        revision: 'a32caa',
+      }
+    ]);
    
 </script>
 

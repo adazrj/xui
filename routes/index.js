@@ -18,4 +18,6 @@ router.get('/:id', function (req, res, next) {
     res.render('pagers/'+params);
 });
 
+
+
 module.exports = router;
